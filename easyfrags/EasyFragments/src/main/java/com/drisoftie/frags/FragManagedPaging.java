@@ -15,8 +15,6 @@
  ****************************************************************************/
 package com.drisoftie.frags;
 
-import com.sony.eu.stc.frags.R;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;

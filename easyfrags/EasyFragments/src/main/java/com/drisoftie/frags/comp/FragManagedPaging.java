@@ -15,8 +15,6 @@
  ****************************************************************************/
 package com.drisoftie.frags.comp;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,11 +26,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.sony.eu.stc.frags.R;
 import com.drisoftie.frags.IAdaptManagedPager;
 import com.drisoftie.frags.IFragManagedPager;
 import com.drisoftie.frags.INotificationForwarder;
 import com.drisoftie.frags.NotifyState;
+import com.drisoftie.frags.R;
+
+import java.util.List;
 
 /**
  * A {@link FragManaged} used as a pager with a {@link ViewPager}.

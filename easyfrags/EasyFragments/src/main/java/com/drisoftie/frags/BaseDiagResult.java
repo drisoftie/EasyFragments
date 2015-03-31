@@ -25,7 +25,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.sony.eu.stc.frags.R;
 import com.drisoftie.frags.handler.IResultHandler;
 
 /**
