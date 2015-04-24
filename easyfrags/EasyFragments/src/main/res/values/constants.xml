@@ -1,23 +1,40 @@
+<!--
+  ~ Copyright [2015] [Alexander Dridiger - drisoftie@gmail.com]
+  ~
+  ~      Licensed under the Apache License, Version 2.0 (the "License");
+  ~      you may not use this file except in compliance with the License.
+  ~      You may obtain a copy of the License at
+  ~
+  ~          http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~      Unless required by applicable law or agreed to in writing, software
+  ~      distributed under the License is distributed on an "AS IS" BASIS,
+  ~      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~      See the License for the specific language governing permissions and
+  ~      limitations under the License.
+  -->
+
 <resources>
-
-    <!-- ================ -->
-    <!-- Bundle Constants -->
-    <!-- ================ -->
-    <eat-comment />
-
-    <string name="bundl_diag_layout" translatable="false">com.drisoftie.frags.extra.bundle.DIALOG_LAYOUT</string>
-    <string name="bundl_diag_title" translatable="false">com.drisoftie.frags.extra.bundle.DIALOG_TITLE</string>
-    <string name="bundl_diag_input_name" translatable="false">com.drisoftie.frags.extra.bundle.DIALOG_NAME_INPUT</string>
-    <string name="bundl_diag_input_descr" translatable="false">com.drisoftie.frags.extra.bundle.DIALOG_DESCRIPTION_INPUT</string>
-    <string name="bundl_diag_btn_positive" translatable="false">com.drisoftie.frags.extra.bundle.DIALOG_BTN_POSITIVE</string>
-    <string name="bundl_diag_btn_negative" translatable="false">com.drisoftie.frags.extra.bundle.DIALOG_BTN_NEGATIVE</string>
-    <string name="bundl_diag_edit" translatable="false">com.drisoftie.frags.extra.bundle.DIALOG_EDIT</string>
 
     <!-- ================ -->
     <!-- Intent Constants -->
     <!-- ================ -->
-    <eat-comment />
+    <eat-comment/>
 
     <integer name="intent_start_activity_for_result">123</integer>
+
+    <!-- ================ -->
+    <!-- Bundle Constants -->
+    <!-- ================ -->
+    <eat-comment/>
+
+    <string name="bundl_diag_layout" translatable="false">Bundle.DIALOG_LAYOUT</string>
+    <string name="bundl_diag_title" translatable="false">Bundle.DIALOG_TITLE</string>
+    <string name="bundl_diag_input_name" translatable="false">Bundle.DIALOG_INPUT_NAME</string>
+    <string name="bundl_diag_input_descr" translatable="false">Bundle.DIALOG_INPUT_DESCRIPTION</string>
+    <string name="bundl_diag_input_password" translatable="false">Bundle.DIALOG_INPUT_PASSWORD</string>
+    <string name="bundl_diag_btn_positive" translatable="false">Bundle.DIALOG_BTN_POSITIVE</string>
+    <string name="bundl_diag_btn_negative" translatable="false">Bundle.DIALOG_BTN_NEGATIVE</string>
+    <string name="bundl_diag_edit" translatable="false">Bundle.DIALOG_EDIT</string>
 
 </resources>

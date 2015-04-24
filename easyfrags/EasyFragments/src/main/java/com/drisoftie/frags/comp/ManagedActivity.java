@@ -1,87 +1,87 @@
-/*****************************************************************************
+/*
+ * Copyright [2015] [Alexander Dridiger - drisoftie@gmail.com]
  *
- * Copyright 2012-2014 Sony Corporation
+ *      Licensed under the Apache License, Version 2.0 (the "License");
+ *      you may not use this file except in compliance with the License.
+ *      You may obtain a copy of the License at
  *
- * The information contained here-in is the property of Sony corporation and
- * is not to be disclosed or used without the prior written permission of
- * Sony corporation. This copyright extends to all media in which this
- * information may be preserved including magnetic storage, computer
- * print-out or visual display.
+ *          http://www.apache.org/licenses/LICENSE-2.0
  *
- * Contains proprietary information, copyright and database rights Sony.
- * Decompilation prohibited save as permitted by law. No using, disclosing,
- * reproducing, accessing or modifying without Sony prior written consent.
- *
- ****************************************************************************/
+ *      Unless required by applicable law or agreed to in writing, software
+ *      distributed under the License is distributed on an "AS IS" BASIS,
+ *      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *      See the License for the specific language governing permissions and
+ *      limitations under the License.
+ */
 package com.drisoftie.frags.comp;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 
 /**
- * A simple skeleton for a managed {@link FragmentActivity}.
- * 
+ * A simple skeleton for a managed {@link ActionBarActivity}.
+ *
  * @author Alexander Dridiger
  */
-public abstract class ManagedActivity extends FragmentActivity {
+public abstract class ManagedActivity extends ActionBarActivity {
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
-	@Override
-	protected void onStart() {
-		super.onStart();
-	}
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 
-	/**
-	 * Callback to do work when this {@link FragmentActivity} is resumed.
-	 */
-	protected abstract void onResuming();
+    /**
+     * Callback to do work when this {@link ActionBarActivity} is resumed.
+     */
+    protected abstract void onResuming();
 
-	/**
-	 * When the UI is shown, a registration process is started to build the necessary {@link FragmentActivity} components. Must run in the
-	 * UI {@link Thread}.
-	 */
-	protected abstract void registerComponents();
+    /**
+     * When the UI is shown, a registration process is started to build the necessary {@link ActionBarActivity} components. Must run in the
+     * UI {@link Thread}.
+     */
+    protected abstract void registerComponents();
 
-	@Override
-	public final void onResume() {
-		super.onResume();
-		onResuming();
-		findViewById(android.R.id.content).post(new Runnable() {
-			@Override
-			public void run() {
-				registerComponents();
-			}
-		});
-	}
+    @Override
+    public final void onResume() {
+        super.onResume();
+        onResuming();
+        findViewById(android.R.id.content).post(new Runnable() {
+            @Override
+            public void run() {
+                registerComponents();
+            }
+        });
+    }
 
-	/**
-	 * Deregistration process started when pausing. Must run in the UI {@link Thread}.
-	 */
-	protected abstract void deregisterComponents();
+    /**
+     * Deregistration process started when pausing. Must run in the UI {@link Thread}.
+     */
+    protected abstract void deregisterComponents();
 
-	/**
-	 * The {@link FragmentActivity} is being paused.
-	 */
-	protected abstract void onPausing();
+    /**
+     * The {@link ActionBarActivity} is being paused.
+     */
+    protected abstract void onPausing();
 
-	@Override
-	public final void onPause() {
-		super.onPause();
-		onPausing();
-		deregisterComponents();
-	}
+    @Override
+    public final void onPause() {
+        super.onPause();
+        onPausing();
+        deregisterComponents();
+    }
 
-	@Override
-	protected void onStop() {
-		super.onStop();
-	}
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-	}
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

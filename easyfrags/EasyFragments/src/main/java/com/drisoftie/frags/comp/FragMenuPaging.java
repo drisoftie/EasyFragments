@@ -13,28 +13,33 @@
  *      See the License for the specific language governing permissions and
  *      limitations under the License.
  */
-package com.drisoftie.frags;
+package com.drisoftie.frags.comp;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.drisoftie.frags.IAdaptManagedPager;
+import com.drisoftie.frags.IFragManagedPager;
+import com.drisoftie.frags.INotificationForwarder;
+import com.drisoftie.frags.NotifyState;
+import com.drisoftie.frags.R;
+
+import java.util.List;
+
 /**
- * A {@link FragManaged} used as a pager with a {@link ViewPager}.
+ * A {@link FragManagedMenu} used as a pager with a {@link ViewPager}.
  *
  * @author Alexander Dridiger
  */
-@SuppressLint("NewApi")
-public abstract class FragManagedPaging extends FragManaged
+public abstract class FragMenuPaging extends FragManagedMenu
         implements INotificationForwarder, IFragManagedPager<Fragment, FragmentManager> {
 
     /*-###########
@@ -52,7 +57,7 @@ public abstract class FragManagedPaging extends FragManaged
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View result = inflater.inflate(getPagerLayoutId(), container, false);
         pager = (ViewPager) result.findViewById(getViewPagerId());
-        pagerAdapter = getPagerAdapter(getFragmentManager());
+        pagerAdapter = getPagerAdapter(getChildFragmentManager());
         pager.setAdapter(pagerAdapter.getFragmentPagerAdapter());
         pager.setCurrentItem(getStartPage());
 
@@ -62,16 +67,15 @@ public abstract class FragManagedPaging extends FragManaged
         if (getPageMarginDrawable() != null) {
             pager.setPageMarginDrawable(getPageMarginDrawable());
         }
+
+        List<Fragment> children = getChildFragmentManager().getFragments();
+        if (children != null) {
+            pagerAdapter.restoreFragments(children);
+        }
+
         actionDelegateActivityResult = new DelegationHandler();
 
-        onCreating(result, inflater, container, savedInstanceState);
-
         return result;
-    }
-
-    @Override
-    public <AdaptT extends IAdaptManagedPager> void switchPagerAdapter(AdaptT adaptPager) {
-        pager.setAdapter((PagerAdapter) adaptPager.getFragmentPagerAdapter());
     }
 
     @Override
@@ -79,13 +83,19 @@ public abstract class FragManagedPaging extends FragManaged
         pagerAdapter.processNotifications(state, args);
     }
 
-    @Override
+    /**
+     * Returns the currently displayed {@link Fragment}.
+     *
+     * @return
+     */
     public Fragment getCurrentFragment() {
         int index = pager.getCurrentItem();
         return pagerAdapter.getFragment(index);
     }
 
-    @Override
+    /**
+     * @return
+     */
     public int getCurrentFragmentPage() {
         return pager.getCurrentItem();
     }

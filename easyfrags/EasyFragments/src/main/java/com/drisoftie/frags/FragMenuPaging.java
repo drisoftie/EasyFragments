@@ -22,19 +22,18 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * A {@link FragManaged} used as a pager with a {@link ViewPager}.
+ * A {@link FragManagedMenu} used as a pager with a {@link ViewPager}.
  *
  * @author Alexander Dridiger
  */
 @SuppressLint("NewApi")
-public abstract class FragManagedPaging extends FragManaged
+public abstract class FragMenuPaging extends FragManagedMenu
         implements INotificationForwarder, IFragManagedPager<Fragment, FragmentManager> {
 
     /*-###########
@@ -64,14 +63,7 @@ public abstract class FragManagedPaging extends FragManaged
         }
         actionDelegateActivityResult = new DelegationHandler();
 
-        onCreating(result, inflater, container, savedInstanceState);
-
         return result;
-    }
-
-    @Override
-    public <AdaptT extends IAdaptManagedPager> void switchPagerAdapter(AdaptT adaptPager) {
-        pager.setAdapter((PagerAdapter) adaptPager.getFragmentPagerAdapter());
     }
 
     @Override

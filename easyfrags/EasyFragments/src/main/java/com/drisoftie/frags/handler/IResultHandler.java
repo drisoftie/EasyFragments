@@ -1,18 +1,18 @@
-/*****************************************************************************
+/*
+ * Copyright [2015] [Alexander Dridiger - drisoftie@gmail.com]
  *
- * Copyright 2012-2013 Sony Corporation
+ *      Licensed under the Apache License, Version 2.0 (the "License");
+ *      you may not use this file except in compliance with the License.
+ *      You may obtain a copy of the License at
  *
- * The information contained here-in is the property of Sony corporation and
- * is not to be disclosed or used without the prior written permission of
- * Sony corporation. This copyright extends to all media in which this
- * information may be preserved including magnetic storage, computer
- * print-out or visual display.
+ *          http://www.apache.org/licenses/LICENSE-2.0
  *
- * Contains proprietary information, copyright and database rights Sony.
- * Decompilation prohibited save as permitted by law. No using, disclosing,
- * reproducing, accessing or modifying without Sony prior written consent.
- *
- ****************************************************************************/
+ *      Unless required by applicable law or agreed to in writing, software
+ *      distributed under the License is distributed on an "AS IS" BASIS,
+ *      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *      See the License for the specific language governing permissions and
+ *      limitations under the License.
+ */
 package com.drisoftie.frags.handler;
 
 /**
