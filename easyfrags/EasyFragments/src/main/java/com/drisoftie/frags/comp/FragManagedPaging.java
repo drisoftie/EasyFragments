@@ -83,7 +83,9 @@ public abstract class FragManagedPaging extends FragManaged
 
     @Override
     public <AdaptT extends IAdaptManagedPager> void switchPagerAdapter(AdaptT adaptPager) {
-        pager.setAdapter((PagerAdapter) adaptPager.getFragmentPagerAdapter());
+        PagerAdapter ad = (PagerAdapter) adaptPager.getFragmentPagerAdapter();
+        pager.setAdapter(ad);
+        ad.notifyDataSetChanged();
     }
 
     @Override
@@ -96,6 +98,7 @@ public abstract class FragManagedPaging extends FragManaged
      *
      * @return
      */
+    @Override
     public Fragment getCurrentFragment() {
         int index = pager.getCurrentItem();
         return pagerAdapter.getFragment(index);
@@ -104,6 +107,7 @@ public abstract class FragManagedPaging extends FragManaged
     /**
      * @return
      */
+    @Override
     public int getCurrentFragmentPage() {
         return pager.getCurrentItem();
     }

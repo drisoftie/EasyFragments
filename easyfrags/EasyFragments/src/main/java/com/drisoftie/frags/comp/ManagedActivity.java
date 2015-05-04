@@ -30,11 +30,6 @@ public abstract class ManagedActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
     /**
      * Callback to do work when this {@link ActionBarActivity} is resumed.
      */
