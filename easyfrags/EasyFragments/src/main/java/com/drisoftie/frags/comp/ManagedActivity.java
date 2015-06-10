@@ -16,14 +16,14 @@
 package com.drisoftie.frags.comp;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
 /**
- * A simple skeleton for a managed {@link ActionBarActivity}.
+ * A simple skeleton for a managed {@link AppCompatActivity}.
  *
  * @author Alexander Dridiger
  */
-public abstract class ManagedActivity extends ActionBarActivity {
+public abstract class ManagedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +31,12 @@ public abstract class ManagedActivity extends ActionBarActivity {
     }
 
     /**
-     * Callback to do work when this {@link ActionBarActivity} is resumed.
+     * Callback to do work when this {@link AppCompatActivity} is resumed.
      */
     protected abstract void onResuming();
 
     /**
-     * When the UI is shown, a registration process is started to build the necessary {@link ActionBarActivity} components. Must run in the
+     * When the UI is shown, a registration process is started to build the necessary {@link AppCompatActivity} components. Must run in the
      * UI {@link Thread}.
      */
     protected abstract void registerComponents();
@@ -59,7 +59,7 @@ public abstract class ManagedActivity extends ActionBarActivity {
     protected abstract void deregisterComponents();
 
     /**
-     * The {@link ActionBarActivity} is being paused.
+     * The {@link AppCompatActivity} is being paused.
      */
     protected abstract void onPausing();
 
