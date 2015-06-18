@@ -63,6 +63,11 @@ public interface IFragManagedPager<FragT, FragManagerT> {
     /**
      * @return
      */
+    int getPagesAmount();
+
+    /**
+     * @return
+     */
     Integer getPageMargin();
 
     /**

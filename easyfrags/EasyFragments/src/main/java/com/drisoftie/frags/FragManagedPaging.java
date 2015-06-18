@@ -98,6 +98,11 @@ public abstract class FragManagedPaging extends FragManaged
     }
 
     @Override
+    public int getPagesAmount() {
+        return pagerAdapter.getFragmentPagerAdapter().getCount();
+    }
+
+    @Override
     public void onChangeOccurred(Object... args) {
         // do nothing
     }

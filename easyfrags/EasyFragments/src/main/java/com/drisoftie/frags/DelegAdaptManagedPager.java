@@ -144,6 +144,7 @@ public class DelegAdaptManagedPager {
             }
             case NOTIFY_ALL:
                 notifyAllFrags(args);
+                adapt.delegateDataSetChanged();
                 break;
             case REMOVE:
                 int amount = (Integer) args[0];
